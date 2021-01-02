@@ -16,7 +16,7 @@ CloudRebue API Documentation can be found at https://bulk.cloudrebue.co.ke/docs
 Via Composer (recommended)
 
 ``` bash
-$ composer require cloudebue/api
+$ composer require cloudrebue/api
 ```
 
 Via Download
