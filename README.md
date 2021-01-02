@@ -115,7 +115,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/CloudRebue/Api.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/CloudRebue/api
-[link-downloads]: https://packagist.org/packages/CloudRebue/api
+[link-packagist]: https://packagist.org/packages/cloudrebue/api
+[link-downloads]: https://packagist.org/packages/cloudrebue/api
 [link-author]: https://github.com/edwardmuss
 [link-contributors]: ../../contributors
