@@ -20,16 +20,6 @@ class CloudRebue
     /**
      * @var string
      */
-    private $account_id;
-
-    /**
-     * @var string
-     */
-    private $api_key;
-
-    /**
-     * @var string
-     */
     private $version;
 
 
@@ -38,9 +28,9 @@ class CloudRebue
      * @param string $token
      * @param string $version
      */
-    public function __construct(string $account_id, string $api_key, string $version = 'v1')
+    public function __construct(string $token, string $version = 'v1')
     {
-        $this->token = base64_encode($account_id.':'.$api_key);
+        $this->token = $token;
         $this->version = $version;
     }
 }

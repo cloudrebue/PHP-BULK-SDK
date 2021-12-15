@@ -8,7 +8,7 @@ This PHP SDK provides convenient methods for consuming CloudRebue API.
 
 ## Documentation
 
-CloudRebue API Documentation can be found at https://bulk.cloudrebue.co.ke/docs
+CloudRebue API Documentation can be found at https://developers.cloudrebue.co.ke
 
 
 ## Install

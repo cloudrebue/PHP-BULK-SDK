@@ -12,8 +12,8 @@ use GuzzleHttp\RequestOptions;
 
 abstract class RebueHandler
 {
-    const BASE_URL = "https://bulk.cloudrebue.co.ke/api/";
-    // const BASE_URL = "https://bulk.CloudRebue.co.ke/api/";
+   const BASE_URL = "https://bulk.cloudrebue.co.ke/api/";
+    //  const BASE_URL = "http://localhost/bulkportal2021/api/";
 
     const METHOD_POST = "sendPostRequest";
     const METHOD_GET = "sendGetRequest";
@@ -63,7 +63,7 @@ abstract class RebueHandler
         return [
             "Content-type" => "application/json",
             "Accept" => "application/json",
-            "Authorization" => "Basic $this->token"
+            "Authorization" => "Bearer $this->token"
         ];
     }
 

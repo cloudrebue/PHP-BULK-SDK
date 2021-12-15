@@ -15,6 +15,7 @@ use CloudRebue\Api\Models\Sms;
     |
     |TOKENS can be generated from your account, under the integrations tab.
     |CloudRebue() takes in two parameters, a MANDATORY token and optional api version
+    |sendSMS() takes in an SMS() Object.
     |
     */
 
@@ -25,17 +26,26 @@ $token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYnVsay5jb
 $version = "v1"; //DONT change unless you are using a different version
 $instance = new CloudRebue($token, $version);
 
-
-//Perform account Top Up
+//create an Sms Object
 /*
- * Account TopUp parameters are:
- * units(required)
- * account_id(required)
- * topup_reference(optional)
+ * SMS Object parameters are:
+ * sender(required)
+ * phone(required)
+ * message(required)
+ * correlator(optional)
+ * link_id(optional)
+ * endpoint(optional)
  *
  * Consult API Document for detailed explanation
  */
-$response = $instance->accountTopUp("10", "41" , "  ");
+ 
+ // $sms= new Sms("BizTxt", "0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445,0708361797,0735223445", "We are happy that you are celebrating your birthday today.", "101","link-id-here","https://example.com/delivery");
+ 
+$sms= new Sms("BizTxt", "0708361797", "Test message", "101","link-id-here","https://example.com/delivery");
+
+//send Sms object
+$response = $instance->sendSMS($sms);
 
 header('Content-Type:application/json','Accept: application/json');
 print_r(json_encode($response));
+//var_dump($response);

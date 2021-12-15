@@ -20,10 +20,10 @@ use CloudRebue\Api\Models\Sms;
     */
 
 $account_id = "0278933ad3f9fe59c13245cf4a4cfdcf"; // Account Id from Bulk Portal
-$api_key = "01a767c85d8673c80c4dfb264399dea795d712227ee1eb780c61c736981bdddf80b24ce5a14acf8eabc69378e41dafebbd1596cc97beef79d9807aa839221a02"; // Api Key from Bulk Portal
+$token = "01a767c85d8673c80c4dfb264399dea795d712227ee1eb780c61c736981bdddf80b24ce5a14acf8eabc69378e41dafebbd1596cc97beef79d9807aa839221a02"; // Api Key from Bulk Portal
 
 $version = "v1"; //DONT change unless you are using a different version
-$instance = new CloudRebue($account_id, $api_key, $version);
+$instance = new CloudRebue($token, $version);
 
 //create multiple Sms Object(s)
 /*

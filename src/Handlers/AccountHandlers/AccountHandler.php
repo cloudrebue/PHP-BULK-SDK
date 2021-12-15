@@ -20,7 +20,7 @@ trait AccountHandler
         $uri = "$this->version/account/top-up";
         try {
             $data = [
-                "amount"=>$amount,
+                "units"=>$amount,
                 "account_id"=>$account_id,
                 "topup_reference"=>$topup_reference
             ];
