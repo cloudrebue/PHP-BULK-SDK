@@ -13,14 +13,13 @@ use CloudRebue\Api\Models\Sms;
     | or
     | Append the full namespaced path the the relevant class ....i.e CloudRebue\Api\CloudRebue
     |
-    |TOKENS can be generated from your account, under the integrations tab.
+    |TOKENS can be generated from your account, under the Api Keys tab.
     |CloudRebue() takes in two parameters, a MANDATORY token and optional api version
-    |sendSMS() takes in an SMS() Object.
+    |sendBatchSMS() takes in an SMS() Object.
     |
     */
 
-$account_id = "0278933ad3f9fe59c13245cf4a4cfdcf"; // Account Id from Bulk Portal
-$token = "01a767c85d8673c80c4dfb264399dea795d712227ee1eb780c61c736981bdddf80b24ce5a14acf8eabc69378e41dafebbd1596cc97beef79d9807aa839221a02"; // Api Key from Bulk Portal
+$token = "Token_string"; //replace with your Token from the portal
 
 $version = "v1"; //DONT change unless you are using a different version
 $instance = new CloudRebue($token, $version);
@@ -37,15 +36,14 @@ $instance = new CloudRebue($token, $version);
  *
  * Consult API Document for detailed explanation
  */
-$sms1= new Sms("CLOUD_REBUE", "4554", "Test Message 1", "101");
-$sms2 = new Sms("COACHIFY", "335455", "Test Message 2", "102");
-$sms3 = new Sms("BizTxt", "3546", "Test Message 3", "102");
+$sms= new Sms("CLOUD_REBUE", "0708361797", "Test message 1", "101","link-id-here_or_leave_NULL","https://domain.com/delivery-url");
+$sms2= new Sms("BizTxt", "0735343603", "Test message 2", "102","link-id-here_or_leave_NULL","https://domain.com/delivery-url");
 
-//send Sms object
-$response = $instance->sendBatchSMS($sms1, $sms2, $sms3);
+//send Sms objects
+$response = $instance->sendBatchSMS($sms,$sms2);
 
 //invoke multiple
 //call_user_func_array https://www.php.net/manual/en/function.call-user-func-array.php
+
 header('Content-Type: application/json');
 print_r(json_encode($response));
-// print_r($response);

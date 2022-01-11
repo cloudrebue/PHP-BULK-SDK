@@ -44,7 +44,7 @@ use CloudRebue\Api\Models\Sms;
 $instance = new CloudRebue("TOKEN_string");
 
 //create an Sms Object
-$sms= new Sms("CloudRebue", "0708361797", "Test Message 1", "101");
+$sms= new Sms("CLOUD_REBUE", "0708361797", "Test Message 1", "101");
 
 //send Sms object
 $response = $instance->sendSMS($sms);
@@ -68,7 +68,7 @@ $instance = new CloudRebue("TOKEN_string");
 
 //create multiple Sms Object(s)
 $sms1= new Sms("CLOUD_REBUE", "0708361797", "Test Message 1", "101");
-$sms2 = new Sms("BizTxt", "0708361797"", "Test Message 2", "102");
+$sms2 = new Sms("BizTxt", "0735343603"", "Test Message 2", "102");
 
 //send Sms object
 $response = $instance->sendBatchSMS($sms1, $sms2);
@@ -81,7 +81,10 @@ var_dump($response);
 
 1.  sendSMS()
 2.  sendBatchSMS()
-3.  accountBalance()
+3.  sendVoiceSMS()
+4.  sendBatchVoiceSMS()
+5.  accountBalance()
+6.  accountTopUp()
 
 
 ## Change log

@@ -18,9 +18,7 @@ use CloudRebue\Api\Models\Sms;
     |
     */
 
-$token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYnVsay5jbG91ZHJlYnVlLmNvLmtlXC8iLCJhdWQiOiJodHRwczpcL1wvYnVsay5jbG91ZHJlYnVlLmNvLmtlXC8iLCJpYXQiOjE2Mzc5NjczNzIsImV4cCI6NDc5MzcyNzM3MiwiZGF0YSI6eyJlbWFpbCI6Im11c3VuZ3VlZHdhcmRAZ21haWwuY29tIiwidXNlcl9pZCI6IjEiLCJ1c2VySWQiOiIxIn19.W7y90AJSw0nhYCg80K1Q9h2usPUUykogrVntU4Hxxww"; // Live
-
-// $token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYnVsay5jbG91ZHJlYnVlLmNvLmtlXC8iLCJhdWQiOiJodHRwczpcL1wvYnVsay5jbG91ZHJlYnVlLmNvLmtlXC8iLCJpYXQiOjE2Mzc3NTgyNzAsImV4cCI6NDc5MzUxODI3MCwiZGF0YSI6eyJlbWFpbCI6ImVkd2FyZHNAY2xvdWRyZWJ1ZS5jby5rZSIsInVzZXJfaWQiOiIxIiwidXNlcklkIjoiMSJ9fQ.vLAqQG4qqsYDrFRX7izRhjPr3EgwHdVGLqnEyORcIL4"; // local
+$token = "Token_string"; //replace with your Token from the portal
 
 $version = "v1"; //DONT change unless you are using a different version
 $instance = new CloudRebue($token, $version);

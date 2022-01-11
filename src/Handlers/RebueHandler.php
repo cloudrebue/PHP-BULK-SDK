@@ -5,6 +5,7 @@ namespace CloudRebue\Api\Handlers;
 
 use CloudRebue\Api\Exceptions\BongaException;
 use CloudRebue\Api\Models\Sms;
+use CloudRebue\Api\Models\VoiceSms;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\RequestException;
@@ -12,8 +13,7 @@ use GuzzleHttp\RequestOptions;
 
 abstract class RebueHandler
 {
-   const BASE_URL = "https://bulk.cloudrebue.co.ke/api/";
-    //  const BASE_URL = "http://localhost/bulkportal2021/api/";
+     const BASE_URL = "https://bulk.cloudrebue.co.ke/api/";
 
     const METHOD_POST = "sendPostRequest";
     const METHOD_GET = "sendGetRequest";
@@ -52,6 +52,15 @@ abstract class RebueHandler
     {
         foreach ($this->data as $index => $message) {
             $this->validate($index, $message);
+        }
+        $method = $this->getMethod();
+        return $this->$method();
+    }
+	
+	public function processVoice()
+    {
+        foreach ($this->data as $index => $message) {
+            $this->validateVoice($index, $message);
         }
         $method = $this->getMethod();
         return $this->$method();
@@ -112,4 +121,18 @@ abstract class RebueHandler
             throw new \Exception("Message is Required \n");
         }
     }
+
+    protected function validateVoice(int $index, VoiceSms $message)
+    {
+        if (!$message->getOriginator()) {
+            throw new \Exception("Originator is Required \n");
+        }
+        if (!$message->getPhone()) {
+            throw new \Exception("Phone Number is Required \n");
+        }
+        if (!$message->getMessage()) {
+            throw new \Exception("Message is Required \n");
+        }
+    }
 }
+

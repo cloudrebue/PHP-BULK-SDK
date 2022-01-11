@@ -2,7 +2,7 @@
 require_once '../vendor/autoload.php';
 
 use CloudRebue\Api\CloudRebue;
-use CloudRebue\Api\Models\Sms;
+use CloudRebue\Api\Models\VoiceSms;
 
 /*
     |--------------------------------------------------------------------------
@@ -15,33 +15,34 @@ use CloudRebue\Api\Models\Sms;
     |
     |TOKENS can be generated from your account, under the integrations tab.
     |CloudRebue() takes in two parameters, a MANDATORY token and optional api version
-    |sendSMS() takes in an SMS() Object.
+    |sendVoiceSMS() takes in an SMS() Object.
     |
     */
 
-$account_id = "0278933ad3f9fe59c13245cf4a4cfdcf"; // Account Id from Bulk Portal
-$api_key = "01a767c85d8673c80c4dfb264399dea795d712227ee1eb780c61c736981bdddf80b24ce5a14acf8eabc69378e41dafebbd1596cc97beef79d9807aa839221a02"; // Api Key from Bulk Portal
+$token = "Token_string"; //replace with your Token from the portal
 
 $version = "v1"; //DONT change unless you are using a different version
-$instance = new CloudRebue($api_key, $version);
+$instance = new CloudRebue($token, $version);
 
 //create an Sms Object
 /*
  * SMS Object parameters are:
- * sender(required)
+ * originator(required)
  * phone(required)
  * message(required)
  * correlator(optional)
- * link_id(optional)
+ * voice(optional: default = 1)
+ * repeat(optional: default = 1)
  * endpoint(optional)
  *
  * Consult API Document for detailed explanation
  */
-$sms= new Sms("BizTxt", "444", "Test Message 1", "101");
+
+  // You can also add multiple phone contacts separated with a comma
+$sms= new VoiceSms("+254710282777", "0708361797", "Test message, 1, 2, 3, 4, 5 . and 1 . 2 . 3 . 4.5 . 6", "voicesms","2","10", "https://example.com/delivery");
 
 //send Sms object
-$response = $instance->sendSMS($sms);
+$response = $instance->sendVoiceSMS($sms);
 
 header('Content-Type:application/json','Accept: application/json');
 print_r(json_encode($response));
-//var_dump($response);
